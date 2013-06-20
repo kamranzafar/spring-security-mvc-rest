@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans
+	xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+http://www.springframework.org/schema/security
+http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+	<http
+		pattern="/logout*"
+		security="none" />
+	<http
+		pattern="/login*"
+		security="none" />
+	<http
+		pattern="/resources/**"
+		security="none" />
+
+	<http
+		auto-config="true"
+		use-expressions="true">
+		<intercept-url
+			pattern="/**"
+			access="isAuthenticated()" />
+
+		<form-login
+			login-page="/login"
+			default-target-url="/"
+			authentication-failure-url="/loginfailed" />
+		<logout
+			logout-success-url="/logout"
+			invalidate-session="true" />
+	</http>
+
+	<authentication-manager>
+		<authentication-provider>
+			<user-service>
+				<user
+					name="kamran"
+					password="password"
+					authorities="ROLE_USER" />
+			</user-service>
+		</authentication-provider>
+	</authentication-manager>
+</beans:beans>
