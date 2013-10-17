@@ -14,3 +14,5 @@ This template can easily be extended into a fully functional Spring web applicat
 4. Deploy on Tomcat.
 
 After this you can login to the application from the browser (http://localhost:8080/spring-mvc-rest) using the given username and password.
+
+[![Build Status](https://travis-ci.org/kamranzafar/spring-security-mvc-rest.png?branch=master)](https://travis-ci.org/kamranzafar/spring-security-mvc-rest)
